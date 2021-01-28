@@ -33,10 +33,14 @@ public class App {
         System.out.println("---------------------");
         //Print out the productName of all the Products that starts with B.
         process(products, p -> p.getProductName().startsWith("s"), p -> System.out.println(p));
-
+        System.out.println("---------------------");
         // Print out all Products that have price above 100 AND lower than 150
+        process(products, (p) -> p.getPrice() > 100 && p.getPrice() < 150, action);
+        System.out.println("---------------------");
         // Increase the price of all Products that have a stock value of less than 10 AND above 0 by 50%
-
+        process(products, (p) -> p.getStock() < 10 && p.getStock() > 0, (p) -> p.setPrice(p.getPrice() * 1.5));
+        System.out.println(products);
+        System.out.println("---------------------");
     }
 
 
